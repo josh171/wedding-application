@@ -4,40 +4,10 @@ import AppContainer from '../Components/AppContainer';
 import EventOutlinedIcon from '@mui/icons-material/EventOutlined';
 
 function Home() {
-  // two forms for breakfast and evening guests
-  // qr code to navigate to website
-  // Add a schedule page for info on day details
-
-  // home
-  // when and where in middle
-
-  // destination / location
-  // links to comis
-  // links to booking
-  // google maps
-  // taxi numbers / links
-
-  // rsvp
-  // two forms for breakfast and evening guests
-
-  // menu
-  // list of description (given by holly)
-
-  // gallery
-  // dropbox for guests to send pictures
-
-
-
-  // Questions to ask Holly!!!!
-  // For RSVP page, better with no form before clikcing whether guest is attending in day or evening || Without form in background
-  // Do we want a schedule? Yes
-  // Do we want place where guests can have input on music? Yes
   return (
     <AppContainer>
       <div class="background">
         <div class="content">
-          {/* <div className="square" />
-          <div className="rectangle" /> */}
           <img className="image" src="/images/disneyland_paris.jpeg" alt="home banner" />
           <Typography variant='body1' className="text">To help celebrate</Typography>
           <Typography variant='h4' className="text">Josh & Holly's</Typography>
