@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 
 function RsvpTable() {
+  // error response
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

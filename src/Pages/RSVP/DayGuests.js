@@ -13,6 +13,7 @@ const defaultForm = {
 };
 
 function DayGuests() {
+  // add snackbars
   const [response, setResponse] = useState("I Can Attend");
   const [form, setForm] = useState(defaultForm);
   const handleFormChange = (e) => {

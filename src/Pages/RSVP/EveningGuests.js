@@ -9,6 +9,7 @@ const defaultForm = {
 };
 
 function EveningGuests() {
+  // add snackbars
   const [form, setForm] = useState(defaultForm);
   const handleFormChange = (e) => {
     const { value, name } = e.target;

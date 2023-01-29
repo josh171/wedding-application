@@ -8,11 +8,6 @@ import RsvpTable from "./Pages/Table";
 import { SnackbarProvider } from "notistack";
 
 export default function App() {
-  // Home page (given by holly)
-  // RSVP
-  // Day
-  // menu, time schedule, form to input their choices
-
   return (
     <BrowserRouter>
       <SnackbarProvider maxSnack={5}>
