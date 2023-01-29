@@ -41,7 +41,6 @@ function DayGuests() {
   };
   return (
     <>
-      <img className="rsvp-image" src="/images/1.jpg" alt="RSVP Invatation" />
       <img className="rsvp-image" src="/images/2.jpg" alt="RSVP Menu" />
       <TextField
         select
@@ -51,21 +50,33 @@ function DayGuests() {
         name={response}
         onChange={(e) => setResponse(e.target.value)}
       >
-        {["I Can Attend", "I Can Not Attend"].map((response) => (
+        {["I can attend", "I can't attend"].map((response) => (
           <MenuItem key={response} value={response}>
             {response}
           </MenuItem>
         ))}
       </TextField>
-      {response === "I Can Attend" ? (
+      {response === "I can attend" ? (
         <Form
           form={form}
           setForm={setForm}
           handleSubmit={handleSubmit}
           handleFormChange={handleFormChange}
         />
-      ) : response === "I Can Not Attend" ? (
+      ) : response === "I can't attend" ? (
         <form onSubmit={handleSubmit}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <TextField
+                name="name"
+                margin="dense"
+                fullWidth
+                placeholder="Please enter your full name"
+                value={form.name}
+                onChange={handleFormChange}
+              />
+            </Grid>
+          </Grid>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <TextField
@@ -119,7 +130,6 @@ function Form({ form, setForm, handleSubmit, handleFormChange }) {
         },
       ],
     },
-
     {
       name: "main",
       label: "Main",

@@ -1,4 +1,4 @@
-import { Grid, MenuItem, TextField } from "@mui/material";
+import { Button, ButtonGroup, Grid, MenuItem, TextField } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 
@@ -31,34 +31,7 @@ function EveningGuests() {
         setForm(defaultForm);
       });
   };
-  const formFields = [
-    {
-      name: "name",
-      placeholder: "Please enter full name.",
-    },
-    {
-      name: "response",
-      placeholder: "Please select a response.",
-      select: true,
-      selectOptions: [
-        {
-          value: "I Can Attend",
-          label: "I Can Attend",
-        },
-        {
-          value: "I Can Not Attend",
-          label: "I Can Not Attend",
-        },
-      ],
-    },
-    {
-      name: "comments",
-      placeholder: "Please write any comments.",
-      multiline: true,
-    },
-  ];
   // wedding details picture
-  // form for name, etc.
   const fieldProps = {
     fullWidth: true,
     margin: "dense",
@@ -111,10 +84,25 @@ function EveningGuests() {
                   {...fieldProps}
                   multiline
                   rows={4}
-                  label="Please enter any queries."
+                  label="Please add any additional comments."
                   name="comments"
                   value={form.comments}
                 />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3} alignItems="center">
+              <Grid item xs={12}>
+                <ButtonGroup variant="contained" fullWidth>
+                  <Button type="submit" color="primary">
+                    Submit Form
+                  </Button>
+                  <Button
+                    color="secondary"
+                    onClick={() => setForm(defaultForm)}
+                  >
+                    Reset Form Fields
+                  </Button>
+                </ButtonGroup>
               </Grid>
             </Grid>
           </Grid>

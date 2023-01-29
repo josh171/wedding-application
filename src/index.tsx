@@ -1,11 +1,27 @@
+import { createTheme, ThemeProvider } from '@mui/material';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#f48fb1",
+        contrastText: "#fff",
+      },
+      secondary: {
+        main: "#f48fb1",
+        contrastText: "#fff",
+      }
+    },
+  });
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
