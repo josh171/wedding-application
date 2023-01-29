@@ -41,7 +41,7 @@ function EveningGuests() {
   };
   return (
     <>
-      <img className="rsvp-image" src="/images/1.jpg" alt="RSVP Invatation" />
+      <img className="rsvp-image" src="/images/7.jpg" alt="Evening guests" />
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12}>

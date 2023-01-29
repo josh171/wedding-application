@@ -35,13 +35,14 @@ function DayGuests() {
     axios
       .post("http://127.0.0.1:27017/weddingRsvp/add", newRsvpEntry)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.status);
         setForm(defaultForm);
       });
   };
   return (
     <>
-      <img className="rsvp-image" src="/images/2.jpg" alt="RSVP Menu" />
+      <img className="rsvp-image" src="/images/5.jpg" alt="Day guests" />
+      <img className="rsvp-image" src="/images/6.jpg" alt="RSVP Menu" />
       <TextField
         select
         fullWidth
