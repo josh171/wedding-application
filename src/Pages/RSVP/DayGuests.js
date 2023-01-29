@@ -91,7 +91,7 @@ function DayGuests() {
               />
             </Grid>
             <Grid item xs={12}>
-              <ButtonGroup variant="contained" fullWidth>
+              <ButtonGroup variant="outlined" fullWidth>
                 <Button type="submit" color="primary">
                   Submit Form
                 </Button>
@@ -231,7 +231,7 @@ function Form({ form, setForm, handleSubmit, handleFormChange }) {
           })}
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <ButtonGroup variant="contained" fullWidth>
+              <ButtonGroup variant="outlined" fullWidth>
                 <Button type="submit" color="primary">
                   Submit Form
                 </Button>

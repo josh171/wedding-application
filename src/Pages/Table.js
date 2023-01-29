@@ -47,7 +47,7 @@ function RsvpTable() {
           data={data}
           style={{ textDecoration: "none" }}
         >
-          <Button fullWidth margin="dense" color="primary" variant="contained">
+          <Button fullWidth margin="dense" color="primary" variant="outlined">
             Export to csv
           </Button>
         </CSVLink>

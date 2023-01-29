@@ -7,8 +7,8 @@ function Home() {
   return (
     <>
       <img className="home-image" src="/images/1.jpg" alt="RSVP Invatation" />
-      <Box p={3}>
-        <ButtonGroup fullWidth margin="dense" variant="contained">
+      <Box p={0}>
+        <ButtonGroup fullWidth margin="dense" variant="outlined">
           <Button color="primary" onClick={() => navigate("/rsvp/day")}>
             Click for day guests
           </Button>
