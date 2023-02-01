@@ -25,7 +25,7 @@ function RsvpTable() {
     { label: "Comments", key: "comments" },
   ];
   useEffect(() => {
-    fetch("http://127.0.0.1:27017/weddingRsvp")
+    fetch("http://localhost:5000/weddingRsvp")
       .then((res) => res.json())
       .then(
         (result) => {
