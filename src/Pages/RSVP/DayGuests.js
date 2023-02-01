@@ -34,7 +34,7 @@ function DayGuests() {
       comments: form.comments,
     };
     axios
-      .post("http://localhost:5000/weddingRsvp/add", newRsvpEntry)
+      .post("http://127.0.0.1:5000/weddingRsvp/add", newRsvpEntry)
       .then((res) => {
         console.log(res.status);
         setForm(defaultForm);
