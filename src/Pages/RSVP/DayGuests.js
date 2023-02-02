@@ -1,5 +1,6 @@
 import { Button, ButtonGroup, Grid, MenuItem, TextField } from "@mui/material";
-import axios from "axios";
+import { send } from "emailjs-com";
+import { useSnackbar } from "notistack";
 import React from "react";
 import { useState } from "react";
 
@@ -13,7 +14,7 @@ const defaultForm = {
 };
 
 function DayGuests() {
-  // add snackbars
+  const { enqueueSnackbar } = useSnackbar();
   const [response, setResponse] = useState("I Can Attend");
   const [form, setForm] = useState(defaultForm);
   const handleFormChange = (e) => {
@@ -33,11 +34,23 @@ function DayGuests() {
       dessert: form.dessert,
       comments: form.comments,
     };
-    axios
-      .post("http://127.0.0.1:5000/weddingRsvp/add", newRsvpEntry)
-      .then((res) => {
-        console.log(res.status);
+    send(
+      "service_roji926",
+      "template_q4mvn6t213782",
+      newRsvpEntry,
+      "_T3zCwppOv7zel0UQ"
+    )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        enqueueSnackbar("Thank you for your RSVP!", { variant: "success" });
         setForm(defaultForm);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+        enqueueSnackbar(
+          "Error when submitting RSVP! Please contact Josh or Holly!",
+          { variant: "success" }
+        );
       });
   };
   return (
