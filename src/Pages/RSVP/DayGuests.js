@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Grid, MenuItem, TextField } from "@mui/material";
+import { Button, Grid, MenuItem, TextField } from "@mui/material";
 import { send } from "emailjs-com";
 import { useSnackbar } from "notistack";
 import React from "react";
@@ -15,6 +15,7 @@ const defaultForm = {
 
 function DayGuests() {
   const { enqueueSnackbar } = useSnackbar();
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState("I Can Attend");
   const [form, setForm] = useState(defaultForm);
   const handleFormChange = (e) => {
@@ -25,6 +26,7 @@ function DayGuests() {
     });
   };
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     const newRsvpEntry = {
       name: form.name,
@@ -51,7 +53,8 @@ function DayGuests() {
           "Error when submitting RSVP! Please contact Josh or Holly!",
           { variant: "success" }
         );
-      });
+      })
+      .finally(() => setLoading(false));
   };
   return (
     <>
@@ -74,7 +77,7 @@ function DayGuests() {
       {response === "I can attend" ? (
         <Form
           form={form}
-          setForm={setForm}
+          loading={loading}
           handleSubmit={handleSubmit}
           handleFormChange={handleFormChange}
         />
@@ -106,14 +109,14 @@ function DayGuests() {
               />
             </Grid>
             <Grid item xs={12}>
-              <ButtonGroup variant="outlined" fullWidth>
-                <Button type="submit" color="primary">
-                  Submit Form
-                </Button>
-                <Button color="secondary" onClick={() => setForm(defaultForm)}>
-                  Reset Form Fields
-                </Button>
-              </ButtonGroup>
+              <Button
+                type="submit"
+                color="primary"
+                variant="outlined"
+                fullWidth
+              >
+                Submit Form
+              </Button>
             </Grid>
           </Grid>
         </form>
@@ -124,7 +127,7 @@ function DayGuests() {
 
 export default DayGuests;
 
-function Form({ form, setForm, handleSubmit, handleFormChange }) {
+function Form({ form, loading, handleSubmit, handleFormChange }) {
   const formFields = [
     {
       name: "name",
@@ -246,14 +249,15 @@ function Form({ form, setForm, handleSubmit, handleFormChange }) {
           })}
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <ButtonGroup variant="outlined" fullWidth>
-                <Button type="submit" color="primary">
-                  Submit Form
-                </Button>
-                <Button color="secondary" onClick={() => setForm(defaultForm)}>
-                  Reset Form Fields
-                </Button>
-              </ButtonGroup>
+              <Button
+                type="submit"
+                color="primary"
+                variant="outlined"
+                fullWidth
+                disabled={loading}
+              >
+                Submit Form
+              </Button>
             </Grid>
           </Grid>
         </Grid>

@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Grid, MenuItem, TextField } from "@mui/material";
+import { Button, Grid, MenuItem, TextField } from "@mui/material";
 import { send } from "emailjs-com";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
@@ -11,6 +11,7 @@ const defaultForm = {
 
 function EveningGuests() {
   const { enqueueSnackbar } = useSnackbar();
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState(defaultForm);
   const handleFormChange = (e) => {
     const { value, name } = e.target;
@@ -20,6 +21,7 @@ function EveningGuests() {
     });
   };
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     const newRsvpEntry = {
       name: form.name,
@@ -43,9 +45,9 @@ function EveningGuests() {
           "Error when submitting RSVP! Please contact Josh or Holly!",
           { variant: "success" }
         );
-      });
+      })
+      .finally(() => setLoading(false));
   };
-  // wedding details picture
   const fieldProps = {
     fullWidth: true,
     margin: "dense",
@@ -98,6 +100,7 @@ function EveningGuests() {
                   {...fieldProps}
                   multiline
                   rows={4}
+                  required={false}
                   label="Please add any additional comments."
                   name="comments"
                   value={form.comments}
@@ -106,17 +109,15 @@ function EveningGuests() {
             </Grid>
             <Grid container spacing={3} alignItems="center">
               <Grid item xs={12}>
-                <ButtonGroup variant="contained" fullWidth>
-                  <Button type="submit" color="primary">
-                    Submit Form
-                  </Button>
-                  <Button
-                    color="secondary"
-                    onClick={() => setForm(defaultForm)}
-                  >
-                    Reset Form Fields
-                  </Button>
-                </ButtonGroup>
+                <Button
+                  type="submit"
+                  color="primary"
+                  variant="outlined"
+                  fullWidth
+                  disabled={loading}
+                >
+                  Submit Form
+                </Button>
               </Grid>
             </Grid>
           </Grid>
