@@ -52,7 +52,6 @@ function EveningGuests() {
     fullWidth: true,
     margin: "dense",
     variant: "outlined",
-    required: true,
     onChange: handleFormChange,
   };
   return (
@@ -68,6 +67,7 @@ function EveningGuests() {
               <Grid item xs={10}>
                 <TextField
                   {...fieldProps}
+                  required={true}
                   label="Please enter full name."
                   name="name"
                   value={form.name}
@@ -81,6 +81,7 @@ function EveningGuests() {
               <Grid item xs={10}>
                 <TextField
                   {...fieldProps}
+                  required={true}
                   select
                   label="Please select a response."
                   name="response"

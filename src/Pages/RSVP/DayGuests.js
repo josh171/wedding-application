@@ -66,6 +66,7 @@ function DayGuests() {
         margin="dense"
         label="Please select response"
         name={response}
+        required={true}
         onChange={(e) => setResponse(e.target.value)}
       >
         {["I can attend", "I can't attend"].map((response) => (
@@ -89,6 +90,7 @@ function DayGuests() {
                 name="name"
                 margin="dense"
                 fullWidth
+                required={true}
                 placeholder="Please enter your full name"
                 value={form.name}
                 onChange={handleFormChange}
@@ -182,7 +184,6 @@ function Form({ form, loading, handleSubmit, handleFormChange }) {
     fullWidth: true,
     margin: "dense",
     variant: "outlined",
-    required: true,
     onChange: handleFormChange,
     size: "small",
   };
@@ -218,6 +219,7 @@ function Form({ form, loading, handleSubmit, handleFormChange }) {
                       name={field.name}
                       label={field.placeholder}
                       value={form[field.name]}
+                      required={true}
                       {...fieldProps}
                     >
                       {field.selectOptions.map((option, index) => {
@@ -241,6 +243,7 @@ function Form({ form, loading, handleSubmit, handleFormChange }) {
                     name={field.name}
                     label={field.placeholder}
                     value={form[field.name]}
+                    required={true}
                     {...fieldProps}
                   />
                 </Grid>
